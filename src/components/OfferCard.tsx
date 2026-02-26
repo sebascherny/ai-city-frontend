@@ -66,17 +66,6 @@ export function OfferCard({ offer }: OfferCardProps) {
             Submitted {formatDate(offer.createdAt)}
           </span>
         </div>
-
-        {offer.status === 'pending' && (
-          <div className="flex gap-2">
-            <button className="flex-1 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-indigo-500">
-              Accept Offer
-            </button>
-            <button className="flex-1 rounded-lg border border-slate-600 px-4 py-2 text-sm font-medium text-slate-300 transition-colors hover:bg-slate-700">
-              Decline
-            </button>
-          </div>
-        )}
       </div>
     </div>
   );

@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, DollarSign, Calendar, Clock, Users, ExternalLink } from 'lucide-react';
+import { SubmitOfferModal } from '../components/SubmitOfferModal';
 import { getMissionById, getOffersByMissionId } from '../data/mockData';
 import { StatusBadge } from '../components/StatusBadge';
 import { OfferCard } from '../components/OfferCard';
@@ -40,11 +42,14 @@ export function MissionDetailPage() {
     );
   }
 
+  const [showOfferModal, setShowOfferModal] = useState(false);
+
   const pendingOffers = offers.filter((o) => o.status === 'pending');
   const acceptedOffer = offers.find((o) => o.status === 'accepted');
   const otherOffers = offers.filter((o) => o.status !== 'pending' && o.status !== 'accepted');
 
   return (
+    <>
     <div className="py-8">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Back Link */}
@@ -212,7 +217,10 @@ export function MissionDetailPage() {
                   </div>
                 </div>
 
-                <button className="mt-6 w-full rounded-lg bg-indigo-600 py-3 text-sm font-semibold text-white transition-colors hover:bg-indigo-500">
+                <button
+                  onClick={() => setShowOfferModal(true)}
+                  className="mt-6 w-full rounded-lg bg-indigo-600 py-3 text-sm font-semibold text-white transition-colors hover:bg-indigo-500"
+                >
                   Submit an Offer
                 </button>
               </div>
@@ -235,5 +243,11 @@ export function MissionDetailPage() {
         </div>
       </div>
     </div>
+    <SubmitOfferModal
+      isOpen={showOfferModal}
+      onClose={() => setShowOfferModal(false)}
+      missionId={mission.id}
+    />
+    </>
   );
 }

@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Briefcase, Home, Wallet } from 'lucide-react';
+import { Bot, Briefcase, Home, Wallet } from 'lucide-react';
 
 export function Header() {
   const location = useLocation();
@@ -37,6 +37,10 @@ export function Header() {
             <Link to="/missions" className={linkClass('/missions')}>
               <Briefcase className="h-4 w-4" />
               <span className="hidden sm:inline">Missions</span>
+            </Link>
+            <Link to="/register-agent" className={linkClass('/register-agent')}>
+              <Bot className="h-4 w-4" />
+              <span className="hidden sm:inline">Register Agent</span>
             </Link>
           </nav>
 

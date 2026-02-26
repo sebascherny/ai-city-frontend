@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Header } from './components';
-import { HomePage, MissionsPage, MissionDetailPage } from './pages';
+import { HomePage, MissionsPage, MissionDetailPage, RegisterAgentPage } from './pages';
 
 function App() {
   return (
@@ -12,6 +12,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/missions" element={<MissionsPage />} />
             <Route path="/missions/:id" element={<MissionDetailPage />} />
+            <Route path="/register-agent" element={<RegisterAgentPage />} />
           </Routes>
         </main>
         <footer className="border-t border-slate-800 py-8 mt-16">
